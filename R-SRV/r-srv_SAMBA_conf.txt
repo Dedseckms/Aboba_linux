@@ -1,0 +1,12 @@
+[global]
+workgroup = WORKGROUP
+security = user
+
+[nfs]
+path = /opt/nfs/
+browseable = yes
+read only = no
+guest ok = yes
+writeable = yes
+create mask = 0775
+directory mask = 0755

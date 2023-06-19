@@ -1,0 +1,14 @@
+server { listen 80 default_server; server_name _: return 403; }
+
+upstream lb {
+  server r-srv.skill.wsr;
+  server l-srv.skill.wsr;
+}
+
+server {
+  listen 443 ssl;
+  server_name www.skill.wsr;
+  ssl_certificate     /root/certs/www.skill.wsr.crt;
+  ssl_certificate_key /root/certs/www.skill.wsr.key;
+  location { proxy_pass http://lb/; };
+}

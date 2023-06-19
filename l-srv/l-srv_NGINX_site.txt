@@ -1,0 +1,27 @@
+server {
+        listen 80 default_server;
+        server_name _;
+        location / {
+                return 200 "WellCum from l-srv;";
+        }
+}
+
+server {
+        listen 80;
+        server_name web1.skill.wsr;
+        root /opt/nsf/site1;
+        index index1.html
+        location /{
+                try_files $uri $uri/ =404;
+        }
+}
+
+server {
+        listen 80;
+        server_name web2.skill.wsr;
+        root /opt/nsf/site1;
+        index index2.html
+        location /{
+                try_files $uri $uri/ =404;
+        }
+}
